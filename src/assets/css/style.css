@@ -1,0 +1,224 @@
+/* Reset cơ bản */
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4); /* Nền gradient bắt mắt */
+  color: #333;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Container chính */
+.app {
+  background: rgba(255, 255, 255, 0.9); /* Màu nền trắng với độ trong suốt */
+  border-radius: 15px;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2); /* Hiệu ứng nổi khối */
+  padding: 30px;
+  max-width: 800px;
+  width: 100%;
+  text-align: center;
+  animation: fadeIn 1s ease-in-out; /* Hiệu ứng fade in */
+}
+
+/* Hiệu ứng xuất hiện */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: #6200ea; /* Màu tím đậm */
+  margin-bottom: 20px;
+  text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2); /* Hiệu ứng nổi chữ */
+}
+
+/* Đồng hồ đếm ngược */
+.timer {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #e53935; /* Màu đỏ nổi bật */
+  background: #fff;
+  padding: 10px 20px;
+  border-radius: 10px;
+  display: inline-block;
+  margin-bottom: 20px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Khu vực hiển thị văn bản */
+.typing-area {
+  margin: 20px auto;
+  max-width: 800px;
+  text-align: left;
+}
+
+.text-display {
+  font-size: 1.4rem;
+  line-height: 1.8;
+  max-height: 3.6rem; /* Hiển thị đúng 2 dòng */
+  overflow: hidden; /* Ẩn phần dư */
+  color: #333;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  padding: 15px;
+  background: #f9f9f9;
+  position: relative;
+  box-shadow: inset 0px 4px 6px rgba(0, 0, 0, 0.1); /* Hiệu ứng nổi bên trong */
+}
+
+.text-display span {
+  margin-right: 5px;
+  font-weight: bold;
+  position: relative;
+}
+
+/* Highlight từ đang gõ */
+.text-display .highlight {
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4); /* Màu gradient bắt mắt */
+  color: #fff;
+  border-radius: 3px;
+  padding: 0 5px;
+  animation: pulse 1s infinite; /* Hiệu ứng động */
+}
+
+/* Hiệu ứng động cho highlight */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0px 0px 5px rgba(255, 153, 153, 0.5);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0px 0px 10px rgba(255, 153, 153, 0.8);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0px 0px 5px rgba(255, 153, 153, 0.5);
+  }
+}
+
+/* Từ đúng */
+.text-display .correct {
+  color: #4caf50; /* Màu xanh lá cây */
+}
+
+/* Từ sai */
+.text-display .incorrect {
+  color: #f44336; /* Màu đỏ */
+}
+
+/* Ô nhập liệu */
+.typing-input {
+  width: 100%;
+  height: 80px;
+  font-size: 1.2rem;
+  padding: 10px;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  resize: none;
+  margin-top: 20px;
+  background: #fff;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Ô nhập liệu khi focus */
+.typing-input:focus {
+  outline: none;
+  border-color: #6200ea;
+  box-shadow: 0px 0px 10px rgba(98, 0, 234, 0.5);
+}
+
+/* Khu vực kết quả */
+.typing-result {
+  margin-top: 20px;
+  text-align: center;
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+  animation: slideUp 0.5s ease-out; /* Hiệu ứng slide lên */
+}
+
+/* Hiệu ứng kết quả xuất hiện */
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.typing-result h2 {
+  font-size: 2rem;
+  color: #6200ea;
+  margin-bottom: 10px;
+}
+
+.typing-result p {
+  font-size: 1.2rem;
+  margin: 10px 0;
+}
+
+.restart-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #fff;
+  background: linear-gradient(135deg, #4caf50, #81c784);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.restart-button:hover {
+  transform: scale(1.1);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.restart-button:active {
+  transform: scale(0.95);
+}
+/* Nút bắt đầu */
+.start-button {
+  font-size: 1.5rem;
+  padding: 15px 30px;
+  color: white;
+  background: linear-gradient(135deg, #6200ea, #b388ff);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.start-button:hover {
+  transform: scale(1.1);
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.3);
+}
+
+.start-button:active {
+  transform: scale(0.95);
+}
+
+/* Đồng hồ đếm ngược */
+.timer {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #e53935;
+  margin-bottom: 20px;
+}
