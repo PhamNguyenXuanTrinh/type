@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from "react";
 
-const TypingArea = ({ textToType, onComplete, onTypingStart }) => {
-  const words = textToType.split(' '); // Chia đoạn văn bản thành từng từ
+const TypingArea = ({ textToType, onComplete, onTypingStart, timeIsUp }) => {
+  const words = textToType.split(" "); // Chia đoạn văn bản thành từng từ
   const wordsPerLine = 10; // Số từ trên mỗi dòng
   const [currentWordIndex, setCurrentWordIndex] = useState(0); // Từ hiện tại
   const [currentLineIndex, setCurrentLineIndex] = useState(0); // Dòng hiện tại
-  const [inputValue, setInputValue] = useState(''); // Từ đang gõ
-  const [completedWords, setCompletedWords] = useState([]); // Các từ đã hoàn thành (đúng/sai)
+  const [inputValue, setInputValue] = useState(""); // Từ đang gõ
+  const [completedWords, setCompletedWords] = useState([]);
 
   // Lấy các dòng hiện tại và tiếp theo
   const getCurrentLines = () => {
@@ -38,7 +38,7 @@ const TypingArea = ({ textToType, onComplete, onTypingStart }) => {
     setInputValue(value);
 
     // Khi nhấn phím "Space" (khoảng trắng)
-    if (value.endsWith(' ')) {
+    if (value.endsWith(" ")) {
       const trimmedValue = value.trim(); // Loại bỏ khoảng trắng cuối
       const isCorrect = trimmedValue === words[currentWordIndex]; // Kiểm tra đúng/sai
 
@@ -47,20 +47,21 @@ const TypingArea = ({ textToType, onComplete, onTypingStart }) => {
         { word: words[currentWordIndex], isCorrect },
       ]);
 
-      setInputValue(''); // Reset ô nhập liệu
+      setInputValue(""); // Reset ô nhập liệu
       setCurrentWordIndex(currentWordIndex + 1); // Chuyển sang từ tiếp theo
 
       // Nếu hết dòng hiện tại, chuyển sang dòng tiếp theo
       if ((currentWordIndex + 1) % wordsPerLine === 0) {
         setCurrentLineIndex(currentLineIndex + 1); // Chuyển sang dòng tiếp theo
       }
-
-      // Kết thúc nếu gõ hết đoạn văn
-      if (currentWordIndex + 1 === words.length) {
-        onComplete(completedWords);
-      }
     }
   };
+  useEffect(() => {
+    if (timeIsUp) {
+      console.log("TypingArea -> Time is up. Sending completed words...");
+      onComplete(completedWords);
+    }
+  }, [timeIsUp, onComplete, completedWords]);
 
   return (
     <div className="typing-area">
@@ -72,27 +73,27 @@ const TypingArea = ({ textToType, onComplete, onTypingStart }) => {
               key={`current-${index}`}
               className={
                 index + currentLineIndex * wordsPerLine === currentWordIndex
-                  ? 'highlight' // Từ đang gõ
+                  ? "highlight" // Từ đang gõ
                   : index + currentLineIndex * wordsPerLine < currentWordIndex
                   ? completedWords[index + currentLineIndex * wordsPerLine]
                       ?.isCorrect
-                    ? 'correct' // Từ đúng
-                    : 'incorrect' // Từ sai
-                  : ''
+                    ? "correct" // Từ đúng
+                    : "incorrect" // Từ sai
+                  : ""
               }
             >
-              {word}{' '}
+              {word}{" "}
             </span>
           ))}
         </div>
         <div className="next-line">
           {nextLine.map((word, index) => (
-            <span key={`next-${index}`}>{word}{' '}</span>
+            <span key={`next-${index}`}>{word} </span>
           ))}
         </div>
         <div className="following-line">
           {followingLine.map((word, index) => (
-            <span key={`following-${index}`}>{word}{' '}</span>
+            <span key={`following-${index}`}>{word} </span>
           ))}
         </div>
       </div>
@@ -103,6 +104,7 @@ const TypingArea = ({ textToType, onComplete, onTypingStart }) => {
         value={inputValue}
         onChange={handleInputChange}
         placeholder="Bắt đầu gõ từ đây..."
+        disabled={timeIsUp} // Vô hiệu hóa khi hết thời gian
       />
     </div>
   );

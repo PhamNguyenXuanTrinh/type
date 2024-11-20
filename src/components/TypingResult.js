@@ -13,21 +13,11 @@ const TypingResult = ({ completedWords, timeTaken }) => {
   return (
     <div className="typing-result">
       <h2>Kết quả luyện gõ</h2>
-      <p>
-        Tổng số từ: <strong>{totalWords}</strong>
-      </p>
-      <p>
-        Số từ đúng: <strong className="correct">{correctWords}</strong>
-      </p>
-      <p>
-        Số từ sai: <strong className="incorrect">{incorrectWords}</strong>
-      </p>
-      <p>
-        Độ chính xác: <strong>{accuracy}%</strong>
-      </p>
-      <p>
-        Tốc độ gõ (WPM): <strong>{wpm} từ/phút</strong>
-      </p>
+      <p>Tổng số từ: <strong>{totalWords}</strong></p>
+      <p>Số từ đúng: <strong className="correct">{correctWords}</strong></p>
+      <p>Số từ sai: <strong className="incorrect">{incorrectWords}</strong></p>
+      <p>Độ chính xác: <strong>{accuracy}%</strong></p>
+      <p>Tốc độ gõ (WPM): <strong>{wpm} từ/phút</strong></p>
       <button className="restart-button" onClick={() => window.location.reload()}>
         Thử lại
       </button>

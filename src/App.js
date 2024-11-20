@@ -7,40 +7,55 @@ import './assets/css/style.css';
 const App = () => {
   const [textToType, setTextToType] = useState(''); // Đoạn văn bản cần gõ
   const [isStarted, setIsStarted] = useState(false); // Trạng thái nhấn nút bắt đầu
-  const [hasStartedTyping, setHasStartedTyping] = useState(false); // Trạng thái người dùng bắt đầu gõ
+  const [isTyping, setIsTyping] = useState(false); // Trạng thái người dùng bắt đầu gõ
   const [timeLeft, setTimeLeft] = useState(60); // Đồng hồ đếm ngược
   const [isComplete, setIsComplete] = useState(false); // Trạng thái hoàn thành
-  const [completedWords, setCompletedWords] = useState([]); // Kết quả từ
+  const [completedWords, setCompletedWords] = useState([]); // Kết quả từ đã gõ
 
-  // Chọn ngẫu nhiên đoạn văn bản khi bắt đầu
+  // Chọn ngẫu nhiên đoạn văn bản khi ứng dụng tải
   useEffect(() => {
-    const randomIndex = Math.floor(Math.random() * mediumTexts.texts.length);
-    setTextToType(mediumTexts.texts[randomIndex]);
+    if (mediumTexts.texts?.length > 0) {
+      const randomIndex = Math.floor(Math.random() * mediumTexts.texts.length);
+      setTextToType(mediumTexts.texts[randomIndex]);
+    } else {
+      setTextToType(''); // Nếu không có dữ liệu
+    }
   }, []);
 
-  // Đếm ngược thời gian khi người dùng bắt đầu gõ chữ cái đầu tiên
+  // Đếm ngược thời gian khi người dùng bắt đầu gõ
   useEffect(() => {
-    if (hasStartedTyping && timeLeft > 0 && !isComplete) {
-      const timer = setInterval(() => setTimeLeft((prev) => prev - 1), 1000);
-      return () => clearInterval(timer);
-    } else if (timeLeft === 0) {
-      setIsComplete(true);
+    let timer;
+    if (isTyping && timeLeft > 0 && !isComplete) {
+      timer = setInterval(() => setTimeLeft((prev) => prev - 1), 1000);
+    } else if (timeLeft === 0 && !isComplete) {
+      console.log('Time is up! Completing the session.');
+      setIsComplete(true); // Chuyển trạng thái hoàn thành
     }
-  }, [hasStartedTyping, timeLeft, isComplete]);
+    return () => clearInterval(timer); // Dọn dẹp interval
+  }, [isTyping, timeLeft, isComplete]);
 
-  // Khi người dùng hoàn thành bài tập
+  // Khi người dùng hoàn thành bài tập (hoặc hết thời gian)
   const handleComplete = (results) => {
-    setCompletedWords(results);
-    setIsComplete(true);
+    console.log('App -> handleComplete Called with results:', results);
+    setCompletedWords(results); // Lưu danh sách từ đã gõ
+    setIsComplete(true); // Đánh dấu hoàn thành
   };
 
+  // Khi nhấn nút bắt đầu
   const handleStart = () => {
-    setIsStarted(true); // Khi nhấn nút bắt đầu
+    setIsStarted(true);
+    setTimeLeft(60); // Đặt lại thời gian đếm ngược
+    setCompletedWords([]); // Xóa kết quả trước đó
+    setIsComplete(false); // Đặt trạng thái hoàn thành là false
+    setIsTyping(false); // Đặt trạng thái gõ là false
+    console.log('Session started. Timer reset to 60 seconds.');
   };
 
+  // Khi người dùng bắt đầu gõ
   const handleTypingStart = () => {
-    if (!hasStartedTyping) {
-      setHasStartedTyping(true); // Khi người dùng bắt đầu gõ
+    if (!isTyping) {
+      setIsTyping(true);
+      console.log('Typing started.');
     }
   };
 
@@ -56,6 +71,7 @@ const App = () => {
           <div className="timer">Thời gian còn lại: {timeLeft} giây</div>
           <TypingArea
             textToType={textToType}
+            timeIsUp={timeLeft === 0} // Truyền trạng thái hết thời gian
             onComplete={handleComplete}
             onTypingStart={handleTypingStart} // Bắt đầu đếm ngược khi gõ
           />
@@ -63,7 +79,7 @@ const App = () => {
       ) : (
         <TypingResult
           completedWords={completedWords}
-          timeTaken={60 - timeLeft}
+          timeTaken={60 - timeLeft} // Tính thời gian đã gõ
         />
       )}
     </div>
