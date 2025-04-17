@@ -13,7 +13,7 @@ const App = () => {
   const [textToType, setTextToType] = useState('');
   const [isStarted, setIsStarted] = useState(false);
   const [isTyping, setIsTyping] = useState(false);
-  const [timeLeft, setTimeLeft] = useState(5);
+  const [timeLeft, setTimeLeft] = useState(60);
   const [isComplete, setIsComplete] = useState(false);
   const [completedWords, setCompletedWords] = useState([]);
   const [selectedClass, setSelectedClass] = useState('');
@@ -75,11 +75,11 @@ const App = () => {
       return;
     }
     setIsStarted(true);
-    setTimeLeft(5);
+    setTimeLeft(60);
     setCompletedWords([]);
     setIsComplete(false);
     setIsTyping(false);
-    console.log('Session started. Timer reset to 5 seconds.');
+    console.log('Session started. Timer reset to 60 seconds.');
     selectRandomText(selectedClass, selectedType);
   };
 
@@ -106,7 +106,7 @@ const App = () => {
     setIsStarted(false);
     setIsComplete(false);
     setIsTyping(false);
-    setTimeLeft(5);
+    setTimeLeft(60);
     setCompletedWords([]);
     selectRandomText(selectedClass, selectedType);
   };
@@ -179,7 +179,7 @@ const App = () => {
                   ) : (
                     <TypingResult
                       completedWords={completedWords}
-                      timeTaken={5 - timeLeft}
+                      timeTaken={60 - timeLeft}
                       onReplay={handleReplay}
                       playerName={playerName}
                     />
