@@ -1,8 +1,79 @@
 {
-    "texts": [
-      "Ngôn ngữ tiếng Việt là một trong những ngôn ngữ phong phú nhất trên thế giới với cấu trúc độc đáo và âm điệu đặc trưng. Người Việt Nam sử dụng hệ thống chữ viết Latin với các dấu thanh để thể hiện âm điệu của từ ngữ, điều này tạo nên nét đặc sắc riêng cho ngôn ngữ. Trong quá trình phát triển lịch sử, tiếng Việt đã tiếp thu nhiều từ vựng và khái niệm từ các ngôn ngữ khác, đặc biệt là tiếng Trung Quốc và tiếng Pháp. Điều này phản ánh sự giao thoa văn hóa và các giai đoạn lịch sử khác nhau của dân tộc Việt Nam. Tuy nhiên, bên cạnh đó, tiếng Việt vẫn giữ được bản sắc riêng thông qua các từ ngữ thuần Việt và cách sử dụng ngôn ngữ trong giao tiếp hàng ngày. Một trong những đặc điểm quan trọng của tiếng Việt là hệ thống ngữ pháp đơn giản hơn so với nhiều ngôn ngữ khác. Tiếng Việt không có sự biến đổi hình thái từ như các ngôn ngữ châu Âu. Điều này giúp người học dễ dàng tiếp cận hơn. Tuy nhiên, thử thách lớn nhất khi học tiếng Việt chính là việc sử dụng đúng các dấu thanh, bởi chỉ cần một dấu sai, ý nghĩa của từ có thể thay đổi hoàn toàn.",
-      "Văn hóa Việt Nam là một bức tranh đa sắc, được hình thành qua hàng nghìn năm lịch sử và sự giao thoa với các nền văn hóa lân cận. Trong số đó, một trong những giá trị cốt lõi là lòng hiếu thảo, tôn trọng gia đình và tổ tiên. Người Việt Nam từ xa xưa đã coi trọng việc duy trì và phát huy các truyền thống tốt đẹp như lễ hội, nghệ thuật dân gian, và các phong tục tập quán đặc trưng của từng vùng miền. Âm nhạc, văn học và kiến trúc cũng là những lĩnh vực thể hiện rõ nét sự sáng tạo và bản sắc văn hóa Việt Nam. Ví dụ, nhã nhạc cung đình Huế đã được UNESCO công nhận là di sản văn hóa phi vật thể của nhân loại. Bên cạnh đó, văn hóa Việt Nam còn mang đậm dấu ấn của nông nghiệp, với hình ảnh cây lúa, con trâu gắn bó mật thiết với đời sống người dân. Trong bối cảnh toàn cầu hóa ngày nay, việc bảo tồn và phát huy các giá trị văn hóa truyền thống là một nhiệm vụ không chỉ của các tổ chức văn hóa mà còn là trách nhiệm của mỗi cá nhân. Điều này giúp giữ gìn bản sắc dân tộc và tạo nền tảng cho sự phát triển bền vững.",
-      "Thế giới tự nhiên luôn là nguồn cảm hứng vô tận cho con người. Từ những cánh rừng xanh bạt ngàn, những dòng sông êm đềm chảy qua các thung lũng, cho đến các dãy núi hùng vĩ phủ đầy tuyết trắng, mỗi cảnh quan đều kể một câu chuyện riêng. Tuy nhiên, với sự phát triển không ngừng của nền kinh tế và công nghệ, môi trường tự nhiên đang phải đối mặt với nhiều thách thức nghiêm trọng. Biến đổi khí hậu, sự suy giảm đa dạng sinh học, và ô nhiễm môi trường là những vấn đề toàn cầu mà nhân loại cần đối mặt. Các tổ chức và cá nhân trên toàn thế giới đang nỗ lực tìm kiếm các giải pháp bền vững để bảo vệ hành tinh xanh của chúng ta. Việc giáo dục và nâng cao nhận thức cộng đồng về tầm quan trọng của việc bảo vệ môi trường là một bước đi cần thiết. Chỉ khi con người hiểu rằng sự tồn tại của mình gắn bó chặt chẽ với thiên nhiên, chúng ta mới có thể cùng nhau hành động để xây dựng một tương lai bền vững hơn cho thế hệ mai sau."
-    ]
-  }
-  
+  "texts": [
+    {
+      "content": "Con mèo kêu meo meo. Con chó sủa gâu gâu. Chim hót líu lo trên cây. Mặt trời sáng trên cao. Bé đi chơi ngoài sân. Mẹ nấu cơm trong bếp. Bố đọc sách ở phòng khách. Ông tưới cây trong vườn. Bà ngồi đan áo len. Cả nhà vui vẻ bên nhau. Con cá bơi trong ao. Con bướm bay trên hoa. Gió thổi nhẹ qua cây. Bé thích chạy nhảy ngoài đồng. Bạn của bé là chú mèo nhỏ. Chú mèo rất thích ăn cá tươi. Bé cho mèo ăn mỗi ngày. Cả nhà đều yêu quý chú mèo.",
+      "class": 1,
+      "type": "sentence"
+    },
+    {
+      "content": "Bé yêu gia đình của mình. Mẹ của bé rất hiền. Mẹ hay kể chuyện cho bé nghe. Bố của bé rất vui tính. Bố thường chơi đá bóng với bé. Ông nội thích trồng cây. Cây trong vườn rất xanh. Bà nội hay làm bánh cho bé ăn. Bé thích bánh bà làm nhất. Mỗi buổi sáng, bé dậy sớm. Bé đánh răng và rửa mặt. Sau đó, bé ăn sáng cùng gia đình. Bé có một chú chó nhỏ. Chú chó tên là Mít. Mít rất thích chạy theo bé. Bé và Mít chơi cùng nhau mỗi ngày. Bé rất vui khi ở nhà.",
+      "class": 1,
+      "type": "paragraph"
+    },
+    {
+      "content": "Trời xanh mây trắng bay lượn. Bé vui chơi dưới nắng mai. Chim hót vang trên cành cây. Gió thổi mát cả không gian. Con mèo nằm bên hiên nhà. Nó ngáp dài dưới ánh nắng. Bé cầm quả bóng tròn xinh. Chạy khắp sân cùng bạn bè. Cánh diều bay cao trên trời. Màu sắc rực rỡ lung linh. Bé cười vui thích thú lắm. Cùng bạn hát bài ca vui. Mẹ đứng nhìn bé chơi đùa. Nụ cười mẹ thật dịu dàng. Bé yêu những ngày trong trẻo. Tuổi thơ là những giấc mơ.",
+      "class": 1,
+      "type": "poem"
+    },
+    {
+      "content": "Ông mặt trời chiếu sáng ngời. Soi khắp làng quê thân yêu. Bé đi học trên con đường. Hoa nở hai bên rực rỡ. Cô giáo dạy bé đọc sách. Những câu chuyện thật thú vị. Bạn bè cùng bé vui chơi. Cùng hát vang bài ca hay. Trường học có nhiều cây xanh. Sân trường rộng bé thích chạy. Mỗi ngày bé học một chữ. Bé vui vì mình khôn lớn. Thầy cô như cha mẹ hiền. Dạy bé nên người tốt lành. Bé cố gắng học thật chăm. Để mai lớn giúp ích đời.",
+      "class": 2,
+      "type": "sentence"
+    },
+    {
+      "content": "Bé có một ngôi trường rất đẹp. Trường có nhiều cây xanh và hoa. Sân trường rộng lớn, bé thích chạy nhảy. Mỗi sáng, bé đi học cùng bạn. Cô giáo của bé rất hiền. Cô dạy bé đọc và viết chữ. Bé học được nhiều điều mới. Bé thích nhất là giờ kể chuyện. Cô kể về những chú thỏ, chú gấu. Bé và bạn cùng cười vui. Sau giờ học, bé chơi ở sân trường. Bé chơi đu quay và nhảy dây. Bạn của bé là Lan và Minh. Cả ba cùng chơi rất vui. Mỗi ngày đi học là một ngày hạnh phúc. Bé yêu trường học như ngôi nhà thứ hai của mình.",
+      "class": 2,
+      "type": "paragraph"
+    },
+    {
+      "content": "Mèo con kêu meo meo nhỏ. Chạy theo quả bóng tròn xinh. Bé cười vui thích thú lắm. Cùng mèo chơi cả ngày dài. Trời xanh trong nắng ban mai. Chim hót vang khắp muôn nơi. Bé ngồi bên thềm nhà mát. Nghe bà kể chuyện ngày xưa. Câu chuyện về nàng công chúa. Sống trong lâu đài nguy nga. Bé mơ mình là công chúa. Mặc váy đẹp, đội vương miện. Nhưng bé vẫn yêu ngôi nhà. Nơi có mẹ cha dịu hiền. Tuổi thơ bé là giấc mơ. Lung linh như ánh trăng ngàn.",
+      "class": 2,
+      "type": "poem"
+    },
+    {
+      "content": "Cánh diều bay cao trên trời xanh. Gió thổi mát lành khắp cánh đồng. Bé cùng bạn thả diều buổi chiều. Diều bay cao, bé cười thật to. Mùa thu lá vàng rơi đầy lối. Gió nhẹ thổi qua những cành cây. Bé thích chạy trên con đường làng. Đường làng nhỏ, hoa nở hai bên. Bà của bé hay kể chuyện xưa. Chuyện về ông bụt giúp người nghèo. Bé nghe chăm chú, mắt tròn xoe. Bé muốn lớn lên làm điều tốt. Bé giúp mẹ quét nhà mỗi ngày. Bé nhặt rác ở sân trường sạch. Bé yêu thiên nhiên và bạn bè. Bé mong thế giới luôn bình yên.",
+      "class": 3,
+      "type": "sentence"
+    },
+    {
+      "content": "Mỗi cuối tuần, bé đi công viên với gia đình. Công viên có nhiều cây xanh và hoa đẹp. Bé thích nhất là hồ nước trong veo. Có những chú cá bơi lội tung tăng. Bé và bố thường cho cá ăn. Mẹ của bé chuẩn bị một bữa picnic. Cả nhà ngồi trên thảm cỏ, ăn uống vui vẻ. Bé còn thích chơi cầu trượt và đu quay. Bạn của bé là Nam cũng đến chơi. Hai bạn chơi trò đuổi bắt rất vui. Bé nhìn thấy những chú chim bay trên trời. Bé nghĩ chúng đang hát bài ca tự do. Công viên là nơi bé cảm thấy hạnh phúc. Bé mong mỗi tuần đều được đến đây. Bé hứa sẽ giữ công viên luôn sạch đẹp.",
+      "class": 3,
+      "type": "paragraph"
+    },
+    {
+      "content": "Cánh đồng xanh trải dài bát ngát. Con trâu đi thong thả chiều tà. Nắng vàng rơi lấp lánh trên lá. Lòng bé thấy vui, lòng thầm mơ. Trăng sáng soi đêm đen lấp lánh. Ngôi sao lung linh giữa trời cao. Bé ngồi bên bà nghe kể chuyện. Những câu chuyện xưa thật ngọt ngào. Có chú thỏ trắng trong rừng xanh. Chú chạy nhanh chẳng ai đuổi kịp. Bé cười vui, mắt sáng long lanh. Muốn làm bạn với thỏ trong mơ. Tuổi thơ bé là những ngày đẹp. Như cánh diều bay giữa trời xanh. Bé giữ mãi những kỷ niệm trong. Để lớn lên vẫn thấy lòng vui.",
+      "class": 3,
+      "type": "poem"
+    },
+    {
+      "content": "Bé yêu quý bạn bè ở trường học. Cùng nhau học tập, cùng nhau chơi. Mỗi ngày bé cố gắng học chăm. Để cô giáo khen và bố mẹ vui. Cây lúa trên đồng xanh mướt mát. Nông dân chăm chỉ làm việc ngoài đồng. Bé thấy thương những người vất vả. Bé muốn lớn lên giúp ích quê hương. Mùa xuân hoa nở khắp muôn nơi. Bé đi chúc tết ông bà nội. Ông bà cười, trao bé phong bao. Bé vui lắm, cảm ơn ông bà. Bé học cách chia sẻ với bạn bè. Bé cho bạn kẹo và đồ chơi. Bé biết rằng chia sẻ là hạnh phúc. Bé mong mọi người luôn yêu thương nhau.",
+      "class": 4,
+      "type": "sentence"
+    },
+    {
+      "content": "Quê hương của bé là một ngôi làng nhỏ. Ở đó có con sông chảy êm đềm. Hai bên sông là những hàng tre xanh. Bé thích ngồi bên sông, nghe gió thổi. Ông của bé kể rằng sông là mạch sống. Nó mang nước tưới cho đồng lúa xanh. Bé thấy yêu quê hương mình rất nhiều. Mỗi buổi chiều, bé cùng bạn thả diều. Những cánh diều bay cao trên bầu trời. Bé mơ ước được bay như cánh diều. Bé muốn khám phá những nơi xa xôi. Nhưng bé biết quê hương luôn là nhà. Bé học chăm chỉ để giúp quê hương. Bé muốn trồng thêm cây xanh cho làng. Bé tin rằng quê hương sẽ mãi đẹp. Bé tự hào khi là người con quê lúa.",
+      "class": 4,
+      "type": "paragraph"
+    },
+    {
+      "content": "Quê hương bé là cánh đồng xanh. Lúa thơm ngát trải dài muôn nẻo. Con sông nhỏ lững lờ trôi mãi. Soi bóng tre xanh bên bờ mát lành. Bé yêu những buổi chiều thả diều. Cùng bạn bè cười vang khắp lối. Gió mang diều bay cao vút trời. Như ước mơ bé thêm rực cháy. Mẹ kể chuyện về làng quê xưa. Những ngày gian khó mà ấm êm. Bé nghe lòng thêm yêu quê mẹ. Muốn lớn lên làm quê thêm đẹp. Cây đa cổ thụ bên đình làng. Che bóng mát cho bao thế hệ. Bé nguyện giữ quê luôn xanh mãi. Để quê hương mãi là giấc mơ.",
+      "class": 4,
+      "type": "poem"
+    },
+    {
+      "content": "Bé học cách bảo vệ thiên nhiên quanh mình. Cây xanh giúp không khí trong lành. Bé không vứt rác bừa bãi ngoài đường. Bé nhặt rác ở sân trường mỗi ngày. Mùa hè nắng vàng chiếu khắp nơi. Bé cùng bạn tưới cây trong vườn. Những bông hoa nở rực rỡ sắc màu. Bé thấy lòng mình thật vui vẻ. Bé đọc sách về các loài động vật. Bé biết rằng chúng cần được bảo vệ. Bé mơ ước trở thành nhà khoa học. Để tìm cách cứu lấy rừng xanh. Bé tin rằng mỗi người đều có thể. Giúp trái đất mãi xanh và yên bình. Bé sẽ cố gắng học thật giỏi. Để biến giấc mơ thành hiện thực.",
+      "class": 5,
+      "type": "sentence"
+    },
+    {
+      "content": "Mỗi ngày, bé đều ngắm nhìn bầu trời xanh. Bầu trời rộng lớn làm bé thấy mơ mộng. Bé nghĩ về những chuyến bay xa xôi. Bé muốn khám phá thế giới rộng lớn. Nhưng bé biết rằng phải học giỏi trước. Thầy cô dạy bé về lịch sử quê hương. Bé biết đến những anh hùng dân tộc. Họ đã hy sinh để bảo vệ đất nước. Bé tự hào khi là người Việt Nam. Bé học cách yêu thương và chia sẻ. Bé giúp bạn học bài khi bạn khó khăn. Bé trồng cây xanh ở sân trường mình. Bé tin rằng cây sẽ lớn cùng bé. Bé mơ ước trái đất luôn xanh tươi. Bé sẽ cố gắng để làm được điều đó. Mỗi bước bé đi là một hy vọng. Bé muốn thế giới tràn đầy yêu thương.",
+      "class": 5,
+      "type": "paragraph"
+    },
+    {
+      "content": "Trời xanh vẽ những giấc mơ dài. Ngôi sao sáng giữa muôn ánh bạc. Bé đứng nhìn trời đêm lấp lánh. Lòng thầm mơ những chuyến đi xa. Cánh đồng lúa thơm ngát quê nhà. Gió khẽ hát bài ca dịu ngọt. Bé nhớ những ngày thơ bé nhỏ. Chạy khắp đồng, cười vang trời xanh. Thầy cô dạy bé bao điều hay. Rằng yêu quê là yêu chính mình. Bé học chăm để mai lớn khôn. Dựng xây đất nước thêm rực rỡ. Trái đất xanh cần bàn tay bé. Trồng cây xanh, giữ dòng sông trong. Bé tin rằng mơ ước sẽ thành. Khi lòng bé mãi sáng như sao.",
+      "class": 5,
+      "type": "poem"
+    }
+  ]
+}

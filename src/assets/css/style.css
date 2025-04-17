@@ -1,25 +1,142 @@
 /* Reset cơ bản */
-body {
+* {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Container chính của ứng dụng */
+.app {
   font-family: 'Poppins', sans-serif;
-  background: linear-gradient(135deg, #ff9a9e, #fad0c4); /* Nền gradient bắt mắt */
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
   color: #333;
   min-height: 100vh;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Container bọc nội dung */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Header */
+.app-header {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 15px 0;
+  border-bottom: 2px solid #ddd;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.app-header .container {
+  display: flex;
+  justify-content: space-between;
   align-items: center;
 }
 
-/* Container chính */
-.app {
-  background: rgba(255, 255, 255, 0.9); /* Màu nền trắng với độ trong suốt */
+.app-header h1 {
+  font-size: 2rem;
+  color: #6200ea;
+  margin: 0;
+  text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.app-header nav a {
+  margin-left: 15px;
+  text-decoration: none;
+  color: #6200ea;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.app-header nav a:hover {
+  color: #b388ff;
+}
+
+/* Main */
+.app-main {
+  background: rgba(255, 255, 255, 0.9);
   border-radius: 15px;
-  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2); /* Hiệu ứng nổi khối */
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
   padding: 30px;
+  margin: 20px auto;
   max-width: 800px;
-  width: 100%;
   text-align: center;
-  animation: fadeIn 1s ease-in-out; /* Hiệu ứng fade in */
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* Nội dung các trang tĩnh */
+.page-content {
+  text-align: left;
+}
+
+.page-content h2 {
+  font-size: 2rem;
+  color: #6200ea;
+  margin-bottom: 20px;
+  text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.page-content p {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+}
+
+.page-content ul {
+  list-style: disc;
+  margin: 15px 0 15px 20px;
+}
+
+.page-content ul li {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+/* Phần chọn lớp, loại bài và nhập tên */
+.start-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.name-input {
+  padding: 10px;
+  font-size: 1.2rem;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  background: #fff;
+  width: 200px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.name-input:focus {
+  outline: none;
+  border-color: #6200ea;
+  box-shadow: 0px 0px 10px rgba(98, 0, 234, 0.5);
+}
+
+.class-select {
+  padding: 10px;
+  font-size: 1.2rem;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  background: #fff;
+  width: 200px;
+  cursor: pointer;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.class-select:focus {
+  outline: none;
+  border-color: #6200ea;
+  box-shadow: 0px 0px 10px rgba(98, 0, 234, 0.5);
 }
 
 /* Hiệu ứng xuất hiện */
@@ -34,18 +151,37 @@ body {
   }
 }
 
-h1 {
-  font-size: 2.5rem;
-  color: #6200ea; /* Màu tím đậm */
-  margin-bottom: 20px;
-  text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2); /* Hiệu ứng nổi chữ */
+/* Footer */
+.app-footer {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 15px 0;
+  border-top: 2px solid #ddd;
+  text-align: center;
+  box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.app-footer p {
+  margin: 0 0 10px;
+  color: #333;
+}
+
+.app-footer nav a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: #6200ea;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.app-footer nav a:hover {
+  color: #b388ff;
 }
 
 /* Đồng hồ đếm ngược */
 .timer {
   font-size: 1.8rem;
   font-weight: bold;
-  color: #e53935; /* Màu đỏ nổi bật */
+  color: #e53935;
   background: #fff;
   padding: 10px 20px;
   border-radius: 10px;
@@ -64,15 +200,15 @@ h1 {
 .text-display {
   font-size: 1.4rem;
   line-height: 1.8;
-  max-height: 3.6rem; /* Hiển thị đúng 2 dòng */
-  overflow: hidden; /* Ẩn phần dư */
+  max-height: 3.6rem;
+  overflow: hidden;
   color: #333;
   border: 2px solid #ddd;
   border-radius: 10px;
   padding: 15px;
   background: #f9f9f9;
   position: relative;
-  box-shadow: inset 0px 4px 6px rgba(0, 0, 0, 0.1); /* Hiệu ứng nổi bên trong */
+  box-shadow: inset 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .text-display span {
@@ -83,11 +219,11 @@ h1 {
 
 /* Highlight từ đang gõ */
 .text-display .highlight {
-  background: linear-gradient(135deg, #ff9a9e, #fad0c4); /* Màu gradient bắt mắt */
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
   color: #fff;
   border-radius: 3px;
   padding: 0 5px;
-  animation: pulse 1s infinite; /* Hiệu ứng động */
+  animation: pulse 1s infinite;
 }
 
 /* Hiệu ứng động cho highlight */
@@ -108,12 +244,12 @@ h1 {
 
 /* Từ đúng */
 .text-display .correct {
-  color: #4caf50; /* Màu xanh lá cây */
+  color: #4caf50;
 }
 
 /* Từ sai */
 .text-display .incorrect {
-  color: #f44336; /* Màu đỏ */
+  color: #f44336;
 }
 
 /* Ô nhập liệu */
@@ -131,7 +267,6 @@ h1 {
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Ô nhập liệu khi focus */
 .typing-input:focus {
   outline: none;
   border-color: #6200ea;
@@ -146,7 +281,7 @@ h1 {
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
-  animation: slideUp 0.5s ease-out; /* Hiệu ứng slide lên */
+  animation: slideUp 0.5s ease-out;
 }
 
 /* Hiệu ứng kết quả xuất hiện */
@@ -172,6 +307,24 @@ h1 {
   margin: 10px 0;
 }
 
+.typing-result .title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #e53935;
+  margin-bottom: 15px;
+  animation: bounce 0.5s ease-in-out;
+}
+
+/* Hiệu ứng cho danh hiệu */
+@keyframes bounce {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
 .restart-button {
   margin-top: 20px;
   padding: 10px 20px;
@@ -193,6 +346,7 @@ h1 {
 .restart-button:active {
   transform: scale(0.95);
 }
+
 /* Nút bắt đầu */
 .start-button {
   font-size: 1.5rem;
@@ -213,12 +367,4 @@ h1 {
 
 .start-button:active {
   transform: scale(0.95);
-}
-
-/* Đồng hồ đếm ngược */
-.timer {
-  font-size: 1.8rem;
-  font-weight: bold;
-  color: #e53935;
-  margin-bottom: 20px;
 }
