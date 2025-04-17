@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import TypingArea from './components/TypingArea';
 import TypingResult from './components/TypingResult';
@@ -7,10 +7,10 @@ import Contact from './components/Contact';
 import Privacy from './components/Privacy';
 import Terms from './components/Terms';
 import mediumTexts from './data/vietnamese-texts.json';
+import AdBanner from './components/ads/AdBanner'; // Import component AdBanner
 import './assets/css/style.css';
 
 const App = () => {
-  // State management
   const [textToType, setTextToType] = useState('');
   const [isStarted, setIsStarted] = useState(false);
   const [isTyping, setIsTyping] = useState(false);
@@ -20,11 +20,7 @@ const App = () => {
   const [selectedClass, setSelectedClass] = useState('');
   const [selectedType, setSelectedType] = useState('');
   const [playerName, setPlayerName] = useState('');
-  
-  // Refs
-  const adContainerRef = useRef(null);
 
-  // Select random text based on filters
   const selectRandomText = (classNumber, type) => {
     let filteredTexts = mediumTexts.texts || [];
     
@@ -46,12 +42,10 @@ const App = () => {
     }
   };
 
-  // Update text when class or type changes
   useEffect(() => {
     selectRandomText(selectedClass, selectedType);
   }, [selectedClass, selectedType]);
 
-  // Countdown timer
   useEffect(() => {
     let timer;
     if (isTyping && timeLeft > 0 && !isComplete) {
@@ -62,62 +56,6 @@ const App = () => {
     return () => clearInterval(timer);
   }, [isTyping, timeLeft, isComplete]);
 
-  // Ad integration with proper cleanup
-  useEffect(() => {
-    // Only run on client-side
-    if (typeof window === 'undefined') return;
-
-    const loadAdScript = () => {
-      if (!adContainerRef.current) return;
-      if (window.adScriptLoaded) return;
-
-      // Create configuration script
-      const configScript = document.createElement('script');
-      configScript.innerHTML = `
-        window.atOptions = {
-          'key': '675a0f02ceb9a410c455c361ce701aeb',
-          'format': 'iframe',
-          'height': 60,
-          'width': 468,
-          'params': {}
-        };
-      `;
-
-      // Create ad loader script
-      const adScript = document.createElement('script');
-      adScript.src = '//www.highperformanceformat.com/675a0f02ceb9a410c455c361ce701aeb/invoke.js';
-      adScript.async = true;
-      adScript.onload = () => {
-        window.adScriptLoaded = true;
-        console.log('Ad script loaded successfully');
-      };
-      adScript.onerror = () => console.error('Failed to load ad script');
-
-      // Append scripts to container
-      adContainerRef.current.appendChild(configScript);
-      adContainerRef.current.appendChild(adScript);
-
-      return () => {
-        // Cleanup function
-        if (adContainerRef.current && configScript.parentNode === adContainerRef.current) {
-          adContainerRef.current.removeChild(configScript);
-        }
-        if (adContainerRef.current && adScript.parentNode === adContainerRef.current) {
-          adContainerRef.current.removeChild(adScript);
-        }
-        window.adScriptLoaded = false;
-      };
-    };
-
-    // Delay ad loading slightly for better performance
-    const adLoadTimeout = setTimeout(loadAdScript, 500);
-
-    return () => {
-      clearTimeout(adLoadTimeout);
-    };
-  }, []);
-
-  // Event handlers
   const handleComplete = (results) => {
     setCompletedWords(results);
     setIsComplete(true);
@@ -154,7 +92,9 @@ const App = () => {
   return (
     <Router>
       <div className="app">
+
         <header className="app-header">
+       
           <div className="container">
             <h1>Luyện Gõ Tiếng Việt</h1>
             <nav>
@@ -164,17 +104,16 @@ const App = () => {
             </nav>
           </div>
         </header>
-
+      
+               <AdBanner 
+              adKey="62c7208177ee446fe0d0f64f62d6186d" 
+              width={728} 
+              height={90} 
+            />
         <main className="app-main">
           <div className="container">
-            {/* Ad container with ref */}
-            <div 
-              ref={adContainerRef} 
-              className="ad-banner"
-              style={{ minHeight: '60px' }}
-            >
-              <span className="ad-placeholder">Đang tải quảng cáo...</span>
-            </div>
+            {/* Sử dụng component AdBanner */}
+           
             
             <Routes>
               <Route
@@ -240,6 +179,11 @@ const App = () => {
             </Routes>
           </div>
         </main>
+        {/* <AdBanner
+  adKey="675a0f02ceb9a410c455c361ce701aeb"
+  width={728}
+  height={90}
+/> */}
 
         <footer className="app-footer">
           <div className="container">
