@@ -179,11 +179,11 @@ const App = () => {
             </Routes>
           </div>
         </main>
-        {/* <AdBanner
+        <AdBanner
   adKey="675a0f02ceb9a410c455c361ce701aeb"
   width={728}
   height={90}
-/> */}
+/>
 
         <footer className="app-footer">
           <div className="container">
