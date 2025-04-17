@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import TypingArea from './components/TypingArea';
 import TypingResult from './components/TypingResult';
@@ -10,6 +10,7 @@ import mediumTexts from './data/vietnamese-texts.json';
 import './assets/css/style.css';
 
 const App = () => {
+  // State management
   const [textToType, setTextToType] = useState('');
   const [isStarted, setIsStarted] = useState(false);
   const [isTyping, setIsTyping] = useState(false);
@@ -19,18 +20,24 @@ const App = () => {
   const [selectedClass, setSelectedClass] = useState('');
   const [selectedType, setSelectedType] = useState('');
   const [playerName, setPlayerName] = useState('');
+  
+  // Refs
+  const adContainerRef = useRef(null);
 
-  // Hàm chọn ngẫu nhiên văn bản
+  // Select random text based on filters
   const selectRandomText = (classNumber, type) => {
-    let filteredTexts = mediumTexts.texts;
+    let filteredTexts = mediumTexts.texts || [];
+    
     if (classNumber) {
       filteredTexts = filteredTexts.filter(
         (text) => text.class === parseInt(classNumber)
       );
     }
+    
     if (type) {
       filteredTexts = filteredTexts.filter((text) => text.type === type);
     }
+    
     if (filteredTexts.length > 0) {
       const randomIndex = Math.floor(Math.random() * filteredTexts.length);
       setTextToType(filteredTexts[randomIndex].content);
@@ -39,32 +46,79 @@ const App = () => {
     }
   };
 
-  // Cập nhật văn bản khi thay đổi lớp hoặc loại bài
+  // Update text when class or type changes
   useEffect(() => {
-    if (selectedClass || selectedType) {
-      selectRandomText(selectedClass, selectedType);
-    } else if (mediumTexts.texts?.length > 0) {
-      const randomIndex = Math.floor(Math.random() * mediumTexts.texts.length);
-      setTextToType(mediumTexts.texts[randomIndex].content);
-    } else {
-      setTextToType('');
-    }
+    selectRandomText(selectedClass, selectedType);
   }, [selectedClass, selectedType]);
 
-  // Đếm ngược thời gian
+  // Countdown timer
   useEffect(() => {
     let timer;
     if (isTyping && timeLeft > 0 && !isComplete) {
       timer = setInterval(() => setTimeLeft((prev) => prev - 1), 1000);
     } else if (timeLeft === 0 && !isComplete) {
-      console.log('Time is up! Completing the session.');
       setIsComplete(true);
     }
     return () => clearInterval(timer);
   }, [isTyping, timeLeft, isComplete]);
 
+  // Ad integration with proper cleanup
+  useEffect(() => {
+    // Only run on client-side
+    if (typeof window === 'undefined') return;
+
+    const loadAdScript = () => {
+      if (!adContainerRef.current) return;
+      if (window.adScriptLoaded) return;
+
+      // Create configuration script
+      const configScript = document.createElement('script');
+      configScript.innerHTML = `
+        window.atOptions = {
+          'key': '675a0f02ceb9a410c455c361ce701aeb',
+          'format': 'iframe',
+          'height': 60,
+          'width': 468,
+          'params': {}
+        };
+      `;
+
+      // Create ad loader script
+      const adScript = document.createElement('script');
+      adScript.src = '//www.highperformanceformat.com/675a0f02ceb9a410c455c361ce701aeb/invoke.js';
+      adScript.async = true;
+      adScript.onload = () => {
+        window.adScriptLoaded = true;
+        console.log('Ad script loaded successfully');
+      };
+      adScript.onerror = () => console.error('Failed to load ad script');
+
+      // Append scripts to container
+      adContainerRef.current.appendChild(configScript);
+      adContainerRef.current.appendChild(adScript);
+
+      return () => {
+        // Cleanup function
+        if (adContainerRef.current && configScript.parentNode === adContainerRef.current) {
+          adContainerRef.current.removeChild(configScript);
+        }
+        if (adContainerRef.current && adScript.parentNode === adContainerRef.current) {
+          adContainerRef.current.removeChild(adScript);
+        }
+        window.adScriptLoaded = false;
+      };
+    };
+
+    // Delay ad loading slightly for better performance
+    const adLoadTimeout = setTimeout(loadAdScript, 500);
+
+    return () => {
+      clearTimeout(adLoadTimeout);
+    };
+  }, []);
+
+  // Event handlers
   const handleComplete = (results) => {
-    console.log('App -> handleComplete Called with results:', results);
     setCompletedWords(results);
     setIsComplete(true);
   };
@@ -79,27 +133,13 @@ const App = () => {
     setCompletedWords([]);
     setIsComplete(false);
     setIsTyping(false);
-    console.log('Session started. Timer reset to 60 seconds.');
     selectRandomText(selectedClass, selectedType);
   };
 
   const handleTypingStart = () => {
     if (!isTyping) {
       setIsTyping(true);
-      console.log('Typing started.');
     }
-  };
-
-  const handleClassChange = (e) => {
-    setSelectedClass(e.target.value);
-  };
-
-  const handleTypeChange = (e) => {
-    setSelectedType(e.target.value);
-  };
-
-  const handleNameChange = (e) => {
-    setPlayerName(e.target.value);
   };
 
   const handleReplay = () => {
@@ -127,6 +167,15 @@ const App = () => {
 
         <main className="app-main">
           <div className="container">
+            {/* Ad container with ref */}
+            <div 
+              ref={adContainerRef} 
+              className="ad-banner"
+              style={{ minHeight: '60px' }}
+            >
+              <span className="ad-placeholder">Đang tải quảng cáo...</span>
+            </div>
+            
             <Routes>
               <Route
                 path="/"
@@ -136,25 +185,23 @@ const App = () => {
                       <input
                         type="text"
                         value={playerName}
-                        onChange={handleNameChange}
+                        onChange={(e) => setPlayerName(e.target.value)}
                         placeholder="Nhập tên nhân vật"
                         className="name-input"
                       />
                       <select
                         value={selectedClass}
-                        onChange={handleClassChange}
+                        onChange={(e) => setSelectedClass(e.target.value)}
                         className="class-select"
                       >
                         <option value="">Chọn lớp</option>
-                        <option value="1">Lớp 1</option>
-                        <option value="2">Lớp 2</option>
-                        <option value="3">Lớp 3</option>
-                        <option value="4">Lớp 4</option>
-                        <option value="5">Lớp 5</option>
+                        {[1, 2, 3, 4, 5].map((grade) => (
+                          <option key={grade} value={grade}>Lớp {grade}</option>
+                        ))}
                       </select>
                       <select
                         value={selectedType}
-                        onChange={handleTypeChange}
+                        onChange={(e) => setSelectedType(e.target.value)}
                         className="class-select"
                       >
                         <option value="">Chọn loại bài</option>
@@ -196,7 +243,7 @@ const App = () => {
 
         <footer className="app-footer">
           <div className="container">
-            <p>© 2025 Luyện Gõ Tiếng Việt. All rights reserved.</p>
+            <p>© {new Date().getFullYear()} Luyện Gõ Tiếng Việt. All rights reserved.</p>
             <nav>
               <Link to="/privacy">Chính sách bảo mật</Link>
               <Link to="/terms">Điều khoản dịch vụ</Link>
