@@ -42,40 +42,50 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="start-section">
-      <input
-        type="text"
-        value={playerName}
-        onChange={(e) => setPlayerName(e.target.value)}
-        placeholder="Nhập tên nhân vật"
-        className="name-input"
-      />
-      <select
-        value={selectedClass}
-        onChange={(e) => setSelectedClass(e.target.value)}
-        className="class-select"
-      >
-        <option value="">Chọn lớp</option>
-        {[1, 2, 3, 4, 5].map((grade) => (
-          <option key={grade} value={grade}>
-            Lớp {grade}
-          </option>
-        ))}
-      </select>
-      <select
-        value={selectedType}
-        onChange={(e) => setSelectedType(e.target.value)}
-        className="class-select"
-      >
-        <option value="">Chọn loại bài</option>
-        <option value="sentence">Câu ngắn</option>
-        <option value="paragraph">Đoạn văn</option>
-        <option value="poem">Thơ</option>
-      </select>
-      <button className="start-button" onClick={handleStart}>
-        Bắt đầu
-      </button>
+<div className="start-section">
+  <input style={{width: "100%"}}
+    type="text"
+    value={playerName}
+    onChange={(e) => setPlayerName(e.target.value)}
+    placeholder="Nhập tên nhân vật"
+    className="name-input"
+  />
+  <div className="class-selection" style={{ marginBottom: '20px' }}>
+    <h3 style={{ fontSize: '1.5rem', color: '#6200ea', marginBottom: '10px' }}>Chọn lớp</h3>
+    <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '10px' }}>
+      {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((grade) => (
+        <button
+          key={grade}
+          onClick={() => setSelectedClass(grade)}
+          className={`class-button ${selectedClass === grade ? 'selected' : ''}`}
+        >
+          Lớp {grade}
+        </button>
+      ))}
     </div>
+  </div>
+  <div className="type-selection" style={{ marginBottom: '20px' }}>
+    <h3 style={{ fontSize: '1.5rem', color: '#6200ea', marginBottom: '10px' }}>Chọn loại bài</h3>
+    <div style={{ display: 'flex', justifyContent: 'center', gap: '10px' }}>
+      {[
+        { value: 'sentence', label: 'Câu ngắn' },
+        { value: 'paragraph', label: 'Đoạn văn' },
+        { value: 'poem', label: 'Thơ' },
+      ].map((type) => (
+        <button
+          key={type.value}
+          onClick={() => setSelectedType(type.value)}
+          className={`type-button ${selectedType === type.value ? 'selected' : ''}`}
+        >
+          {type.label}
+        </button>
+      ))}
+    </div>
+  </div>
+  <button className="start-button" onClick={handleStart}>
+    Bắt đầu
+  </button>
+</div>
   );
 };
 
@@ -198,7 +208,17 @@ const App = () => {
           height={60}
           delay={1000}
         />
-        <main className="app-main">
+       <div className='flex'>
+       <div className='left'>
+
+       <AdBanner
+          adKey="71536d6170f2ea6ba7a2f7624c31d7fa"
+          width={160}
+          height={300}
+          delay={3000}
+        />
+       </div>
+       <main className="app-main">
           <div className="container">
             <Routes>
               <Route path="/" element={<Home />} />
@@ -210,6 +230,15 @@ const App = () => {
             </Routes>
           </div>
         </main>
+       <div className='right'>
+       <AdBanner
+          adKey="46616a26084168727fcdad159ba84799"
+          width={160}
+          height={600}
+          delay={2500} 
+        />
+       </div>
+       </div>
         <AdBanner
           adKey="62c7208177ee446fe0d0f64f62d6186d"
           width={728}

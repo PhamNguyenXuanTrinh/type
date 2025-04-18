@@ -18,7 +18,7 @@
 
 /* Container bọc nội dung */
 .container {
-  max-width: 800px;
+  max-width: 1300px;
   margin: 0 auto;
   padding: 0 20px;
 }
@@ -64,13 +64,17 @@
   background: rgba(255, 255, 255, 0.9);
   border-radius: 15px;
   box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
-  padding: 30px;
+  padding: 40px;
   margin: 20px auto;
-  max-width: 800px;
+  width: 800px;
   text-align: center;
-  animation: fadeIn 1s ease-in-out;
-}
 
+}
+.flex{
+  display: flex;
+justify-content: space-between;
+flex-wrap: nowrap;
+}
 /* Nội dung các trang tĩnh */
 .page-content {
   text-align: left;
@@ -199,8 +203,8 @@
 
 .text-display {
   font-size: 1.4rem;
-  line-height: 1.8;
-  max-height: 3.6rem;
+  line-height: 3rem;
+  max-height: 35rem;
   overflow: hidden;
   color: #333;
   border: 2px solid #ddd;
@@ -371,3 +375,92 @@
 
 
 
+/* Quảng cáo trái - cố định bên trái */
+.ad-banner-left {
+  position: fixed;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  z-index: 1000;
+}
+
+/* Quảng cáo phải - cố định bên phải */
+.ad-banner-right {
+  position: fixed;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  z-index: 1000;
+}
+
+/* Đảm bảo quảng cáo trên/dưới căn giữa */
+.ad-banner-top,
+.ad-banner-bottom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px auto;
+  background: #f0f0f0;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* Responsive: Ẩn quảng cáo trái/phải trên màn hình nhỏ */
+@media (max-width: 768px) {
+  .ad-banner-left,
+  .ad-banner-right {
+    display: none;
+  }
+}
+
+
+
+/* Style cho nút chọn lớp và loại bài */
+.class-button, .type-button {
+  padding: 10px 15px;
+  font-size: 1rem;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  background: #fff;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 80px; /* Đảm bảo nút không quá nhỏ */
+  text-align: center;
+}
+
+.class-button:hover, .type-button:hover {
+  border-color: #6200ea;
+  background: #f0f0f0;
+  transform: scale(1.05);
+}
+
+.class-button.selected, .type-button.selected {
+  background: linear-gradient(135deg, #6200ea, #b388ff);
+  color: #fff;
+  border-color: #6200ea;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Đảm bảo start-section căn giữa và rộng 800px */
+.start-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  width: 100%;
+  max-width: 800px; /* Đảm bảo không vượt quá 800px */
+  margin: 0 auto;
+}
+
+/* Responsive cho màn hình nhỏ */
+@media (max-width: 768px) {
+  .start-section {
+    padding: 0 10px;
+  }
+  .class-button, .type-button {
+    min-width: 60px;
+    padding: 8px 10px;
+    font-size: 0.9rem;
+  }
+}
