@@ -201,7 +201,12 @@ const App = () => {
             </nav>
           </div>
         </header>
-
+        <AdBanner
+          adKey="62c7208177ee446fe0d0f64f62d6186d"
+          width={728}
+          height={90}
+          delay={2000} 
+        />
         <AdBanner
           adKey="756b04fd3c82109ba11fe18db6ab2e25"
           width={468}
@@ -239,12 +244,7 @@ const App = () => {
         />
        </div>
        </div>
-        <AdBanner
-          adKey="62c7208177ee446fe0d0f64f62d6186d"
-          width={728}
-          height={90}
-          delay={2000} 
-        />
+       
 
         <footer className="app-footer">
           <div className="container">
