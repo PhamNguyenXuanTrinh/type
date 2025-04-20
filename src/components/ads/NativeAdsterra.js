@@ -17,7 +17,7 @@ const NativeAdsterra = () => {
   }, []);
 
   return (
-    <div style={{ width: "1000", textAlign: "center", margin: "20px 0" }}>
+    <div style={{ width: "1000px", textAlign: "center", margin: "0 auto" }}>
       <div id="ad-container" style={{ display: visible ? "block" : "none" }}>
         <div id="container-482dfa1ff19a36ca9b0297c47f80d6d7"></div>
       </div>
