@@ -9,7 +9,7 @@ import Terms from './components/Terms';
 import mediumTexts from './data/vietnamese-texts.json';
 import AdBanner from './components/ads/AdBanner';
 import './assets/css/style.css';
-
+import NativeAdsterra from "./components/ads/NativeAdsterra"; // Import component quảng cáo
 // Component cho trang nhập liệu
 const Home = () => {
   const [playerName, setPlayerName] = useState('');
@@ -26,8 +26,8 @@ const Home = () => {
     localStorage.setItem('playerName', playerName);
     localStorage.setItem('selectedClass', selectedClass);
     localStorage.setItem('selectedType', selectedType);
-    // Reload trang và chuyển đến /typing
-    window.location.href = '/typing';
+
+    navigate('/typing');
   };
   
 
@@ -93,7 +93,7 @@ const Home = () => {
 const TypingPage = () => {
   const [textToType, setTextToType] = useState('');
   const [isTyping, setIsTyping] = useState(false);
-  const [timeLeft, setTimeLeft] = useState(60);
+  const [timeLeft, setTimeLeft] = useState(90);
   const [isComplete, setIsComplete] = useState(false);
   const [completedWords, setCompletedWords] = useState([]);
   const [selectedClass, setSelectedClass] = useState('');
@@ -178,7 +178,7 @@ const TypingPage = () => {
       ) : (
         <TypingResult
           completedWords={completedWords}
-          timeTaken={60 - timeLeft}
+          timeTaken={90 - timeLeft}
           onReplay={handleReplay}
           playerName={playerName}
         />
@@ -245,7 +245,7 @@ const App = () => {
        </div>
        </div>
        
-
+       <NativeAdsterra /> 
         <footer className="app-footer">
           <div className="container">
             <p>

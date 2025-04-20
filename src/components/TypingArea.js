@@ -65,6 +65,7 @@ const TypingArea = ({ textToType, onComplete, onTypingStart, timeIsUp }) => {
 
   return (
     <div className="typing-area">
+
       {/* Hiển thị dòng hiện tại và các dòng tiếp theo */}
       <div className="text-display">
         <div className="current-line">
