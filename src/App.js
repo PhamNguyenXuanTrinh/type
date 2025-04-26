@@ -93,7 +93,7 @@ const Home = () => {
 const TypingPage = () => {
   const [textToType, setTextToType] = useState('');
   const [isTyping, setIsTyping] = useState(false);
-  const [timeLeft, setTimeLeft] = useState(90);
+  const [timeLeft, setTimeLeft] = useState(120);
   const [isComplete, setIsComplete] = useState(false);
   const [completedWords, setCompletedWords] = useState([]);
   const [selectedClass, setSelectedClass] = useState('');
@@ -178,7 +178,7 @@ const TypingPage = () => {
       ) : (
         <TypingResult
           completedWords={completedWords}
-          timeTaken={90 - timeLeft}
+          timeTaken={120 - timeLeft}
           onReplay={handleReplay}
           playerName={playerName}
         />
